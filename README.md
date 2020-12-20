@@ -4,7 +4,7 @@ to run site, firstly, download project ```git clone https://github.com/SMART-Jae
 
 then go into download folder   ```cd sensycry-site```
 
-now you need set up this project, simply write ```npm init``` and wait when finished initialising of project
+now you need set up this project, simply write ```npm install``` and wait when finished initialising of project
 
 congratulations you set up this app and now you can execute next commands
 
