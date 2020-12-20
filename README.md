@@ -1,6 +1,6 @@
 # SensyCry Site
 
-to run site, firstly, download project ```git clone ....```
+to run site, firstly, download project ```git clone https://github.com/SMART-Jaegers/SensyCry-Site.git```
 
 then go into download folder   ```cd sensycry-site```
 
