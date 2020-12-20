@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Icon icon="clock" />
+        <Icon icon="settings" color="blue" secondColor="gray" size={16} />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

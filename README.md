@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# SensyCry Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+to run site, firstly, download project ```git clone ....```
+
+then go into download folder   ```cd sensycry-site```
+
+now you need set up this project, simply write ```npm init``` and wait when finished initialising of project
+
+congratulations you set up this app and now you can execute next commands
 
 ## Available Scripts
 

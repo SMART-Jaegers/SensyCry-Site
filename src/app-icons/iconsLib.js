@@ -1,90 +1,16 @@
 import React from "react";
+import { clock } from "./resources/ClockResources";
+import { logOut } from "./resources/Log-outResources";
+import { more2 } from "./resources/More2Resources";
+import { more } from "./resources/MoreResources";
+import { settings } from "./resources/SettingsResources";
 
-export const clock = function (color = "#9C687A") {
-  return (
-    <React.Fragment>
-      <circle cx="55" cy="55" r="51" stroke={color} stroke-width="8" />
-      <line
-        x1="30.6569"
-        y1="30"
-        x2="33.5147"
-        y2="32.8578"
-        stroke="#9C687A"
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="30"
-        y1="79.8579"
-        x2="32.8578"
-        y2="77"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="79"
-        y1="32.8579"
-        x2="81.8578"
-        y2="30"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="55"
-        y1="23.0416"
-        x2="55"
-        y2="19"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="55"
-        y1="91.0416"
-        x2="55"
-        y2="87"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="87"
-        y1="55"
-        x2="91.0416"
-        y2="55"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="19"
-        y1="55"
-        x2="23.0416"
-        y2="55"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="55"
-        y1="54.8445"
-        x2="55"
-        y2="35"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      <line
-        x1="55.6539"
-        y1="55.8176"
-        x2="81.8176"
-        y2="80.3461"
-        stroke={color}
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-    </React.Fragment>
-  );
+const assets = {
+  clock: clock,
+  "log-out": logOut,
+  more: more,
+  more2: more2,
+  settings: settings,
 };
+
+export default assets;
