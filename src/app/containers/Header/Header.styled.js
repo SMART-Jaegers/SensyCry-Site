@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Button } from "../../components/Buttons/MainButton.styled";
+import { ButtonStyled } from "../../components/Buttons/MainButton.styled";
 
 export const Wrapper = styled.div`
-  width: 100vw;
+  /* width: 100vw; */
   height: 13vh;
   background-color: #316c7a;
   display: flex;
@@ -28,22 +28,28 @@ export const AskForHelp = styled.div`
   width: 16vw;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 `;
 
-export const TextStyled = styled.p``;
+export const TextStyled = styled.p`
+  user-select: none;
+`;
 
 export const ImageStyled = styled.img`
-  margin: auto 0;
   alt: "Header image";
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  padding-top: 3px;
+  margin-left: 10px;
+  user-select: none;
 `;
 
 export const Logo = styled(ImageStyled)`
   /* padding: 0 20vw; */
+  user-select: none;
 `;
 
-export const HeaderButton = styled(Button)`
+export const HeaderButton = styled(ButtonStyled)`
   margin: auto 0;
   background: rgba(255, 255, 255, 0);
   width: ${({ width }) => width};

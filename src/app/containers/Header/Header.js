@@ -21,7 +21,7 @@ const Header = () => {
         <Logo src={logo}></Logo>
         <AskForHelp>
           <TextStyled>Звернутись по допомогу</TextStyled>
-          <ImageStyled src={arrow} style={{ marginLeft: "3px" }}></ImageStyled>
+          <ImageStyled src={arrow}></ImageStyled>
         </AskForHelp>
       </HeaderStyled>
     </Wrapper>
