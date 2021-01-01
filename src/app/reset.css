@@ -1,0 +1,7 @@
+p {
+  margin: 0;
+}
+
+p::selection{
+  background:  #316C7A;
+}

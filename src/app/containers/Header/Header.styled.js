@@ -40,7 +40,7 @@ export const ImageStyled = styled.img`
 `;
 
 export const Logo = styled(ImageStyled)`
-  padding: 0 20vw;
+  /* padding: 0 20vw; */
 `;
 
 export const HeaderButton = styled(Button)`

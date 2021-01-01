@@ -6,14 +6,18 @@ import {
   NavLink,
 } from "react-router-dom";
 import Home from "../Home/Home";
+import Main from "../Main/Main";
 
 const Navigation = () => {
   return (
     <Router>
       <NavLink exact to="/" activeClassName="selected"></NavLink>
       <Switch>
-        <Route path="/">
-          <Home></Home>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/main">
+          <Main />
         </Route>
       </Switch>
     </Router>
