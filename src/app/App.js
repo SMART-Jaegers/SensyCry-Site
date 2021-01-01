@@ -1,25 +1,17 @@
-import logo from "./images/logo.svg";
 import "./App.css";
-import Icon from "../app-icons/Icon";
+import Navigation from "./containers/Navigation/Navigation";
+import Header from "./containers/Header/Header";
+import Footer from "./containers/Footer/Footer";
+import "antd/dist/antd.css";
+import "./normalize.min.css";
+import "./reset.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Icon icon="settings" color="blue" secondColor="gray" size={16} />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Navigation></Navigation>
+      <Footer />
     </div>
   );
 }
