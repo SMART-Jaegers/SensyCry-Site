@@ -9,7 +9,7 @@ const restApi = axios.create({
 
 export const fetchIncedent = async () => {
   try {
-    let responseData = await restApi.get("/incedent");
+    let responseData = await restApi.get("/incedent/all/10");
     let data = await addAddress(responseData.data);
     return data;
   } catch (error) {

@@ -34,10 +34,10 @@ const Main = () => {
         ) : isLoading ? (
           <div />
         ) : (
-          <div>
+          <p>
             No connection to server
             <br /> Please try again later
-          </div>
+          </p>
         )}
       </ContainerIncedent>
     </ContentStyled>

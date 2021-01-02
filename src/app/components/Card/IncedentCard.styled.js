@@ -16,7 +16,7 @@ export const CardStyled = styled(Card)`
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  margin: 20px 40px;
   .ant-card-body {
     padding: 0;
   }
@@ -88,5 +88,10 @@ export const CardButton = styled(Button)`
     border: 2px solid #9c687a;
     box-sizing: border-box;
     color: #9c687a;
+  }
+
+  :hover {
+    transition: 0.5s;
+    transform: scale(1.03);
   }
 `;

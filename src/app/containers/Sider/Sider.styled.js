@@ -6,6 +6,9 @@ const { Sider } = Layout;
 export const SiderStyled = styled(Sider)`
   background: #79a3ad;
   box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const DistrictName = styled.p`
