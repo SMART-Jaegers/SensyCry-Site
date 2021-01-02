@@ -10,6 +10,7 @@ export const HeaderStyled = styled(Header)`
   align-items: center;
   justify-content: space-around;
   padding: 0;
+  height: 86px;
   .ant-menu {
     line-height: 50px;
   }

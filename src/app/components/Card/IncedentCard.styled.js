@@ -41,8 +41,9 @@ export const VerticalTextStyled = styled(RobotoText)`
 export const HeaderStyled = styled.div`
   height: 35.57px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 `;
 
 export const NumberIncedent = styled(RobotoText)`
