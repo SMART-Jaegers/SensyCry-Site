@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ButtonStyled } from "../../components/Buttons/MainButton.styled";
 import { Header } from "../../components/Text/Text.styled";
 import { Image } from "antd";
+import { fadeIn } from "react-animations";
 
 export const HomeMain = styled.div`
   position: relative;
@@ -11,8 +12,15 @@ export const HomeMain = styled.div`
   flex-direction: column;
 `;
 
+const FadeInAnimation = keyframes`${fadeIn}`;
+
 export const HeadingImage = styled(Image)`
   user-select: none;
+  height: 100vh;
+  filter: brightness(0.85);
+  z-index: -2;
+  margin-top: -13vh;
+  animation: 3s ${FadeInAnimation};
 `;
 
 export const MainHeader = styled(Header)`

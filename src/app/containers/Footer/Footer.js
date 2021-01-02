@@ -9,14 +9,10 @@ import {
   FooterHotLineHeader,
   FooterHotLinePhone,
   FooterMainHeader,
-  CitiesLabel,
   FooterBottom,
-  CitiesSelect,
-  DropdownStyled,
   ButtonChoice,
 } from "./Footer.styled";
 import { Menu, Dropdown } from "antd";
-import { MainButton } from "../Home/Home.styled";
 import { DownOutlined } from "@ant-design/icons";
 
 const menu = (
