@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Layout } from "antd";
 
 export const NavigationStyled = styled.div`
   p {
@@ -9,4 +10,8 @@ export const NavigationStyled = styled.div`
     line-height: 1.2rem;
     letter-spacing: 6%;
   }
+`;
+
+export const LayoutStyled = styled(Layout)`
+  min-height: 100vh;
 `;

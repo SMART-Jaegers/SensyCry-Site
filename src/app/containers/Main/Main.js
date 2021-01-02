@@ -1,12 +1,19 @@
 import React from "react";
+import { ContainerIncedent, ContentLabel, ContentStyled } from "./Main.styled";
 import CardIncedent from "../../components/Card/IncedentCard";
-import {} from "./Main.styled";
 
 const Main = () => {
   return (
-    <div>
-      <CardIncedent />
-    </div>
+    <ContentStyled>
+      <ContentLabel>Останні сигнали</ContentLabel>
+      <ContainerIncedent>
+        <CardIncedent />
+        <CardIncedent />
+        <CardIncedent />
+        <CardIncedent />
+        <CardIncedent />
+      </ContainerIncedent>
+    </ContentStyled>
   );
 };
 

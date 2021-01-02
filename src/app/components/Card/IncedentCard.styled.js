@@ -13,8 +13,10 @@ export const CardStyled = styled(Card)`
   height: 201.5px;
   background-image: url(${cartBackground});
   background-repeat: no-repeat;
+  border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin: 20px;
   .ant-card-body {
     padding: 0;
   }

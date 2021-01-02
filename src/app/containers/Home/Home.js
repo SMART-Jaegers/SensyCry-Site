@@ -7,7 +7,7 @@ import MainBackground from "../../images/main_background_main_page.png";
 import SecondaryBackground from "../../images/secondary_background_main_page.png";
 import HomeArticle from "../../components/HomeArticle/HomeArticle";
 import Footer from "../Footer/Footer";
-import HomeHeader from "../Headers/HomeHeader";
+import HomeHeader from "../Headers/HomeHeaders/HomeHeader";
 import { AnimateOnChange } from "react-animation";
 
 const Home = () => {

@@ -7,10 +7,9 @@ import {
   Wrapper,
   HeaderButton,
   Logo,
-  EmptyButton,
 } from "./HomeHeader.styled";
-import logo from "../../images/logo-main.svg";
-import arrow from "../../images/ask_for_help_arrow.svg";
+import logo from "../../../images/logo-main.svg";
+import arrow from "../../../images/ask_for_help_arrow.svg";
 
 const HomeHeader = () => {
   return (
