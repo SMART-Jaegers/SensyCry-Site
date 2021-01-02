@@ -8,6 +8,7 @@ import SecondaryBackground from "../../images/secondary_background_main_page.png
 import HomeArticle from "../../components/HomeArticle/HomeArticle";
 import Footer from "../Footer/Footer";
 import HomeHeader from "../Headers/HomeHeader";
+import { AnimateOnChange } from "react-animation";
 
 const Home = () => {
   const myRef = useRef(null);
@@ -21,7 +22,9 @@ const Home = () => {
     <React.Fragment>
       <HomeHeader />
       <HomeMain>
-        <HeadingImage preview={false} src={background} />
+        <AnimateOnChange>
+          <HeadingImage preview={false} src={background} width="100%" />
+        </AnimateOnChange>
         <MainHeader>Зупини насилля</MainHeader>
         <MainButton
           onClick={showArticles}

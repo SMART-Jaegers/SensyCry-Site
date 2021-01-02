@@ -18,9 +18,9 @@ export const HeadingImage = styled(Image)`
   user-select: none;
   height: 100vh;
   filter: brightness(0.85);
-  z-index: -2;
+  /* z-index: -2; */
   margin-top: -13vh;
-  animation: 3s ${FadeInAnimation};
+  /* animation: 3s ${FadeInAnimation}; */
 `;
 
 export const MainHeader = styled(Header)`
