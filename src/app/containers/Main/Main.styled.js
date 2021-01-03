@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { Layout } from "antd";
 import CircleLoader from "react-spinners/CircleLoader";
+import {
+  ContentLabel,
+  ContentWrapper,
+} from "../../components/ContentLabel/ContentLabel.styled";
 
 const { Content } = Layout;
 
@@ -9,21 +13,10 @@ export const ContentStyled = styled(Content)`
   width: 100%;
 `;
 
-export const ContentLabel = styled.p`
-  background: #79a3ad;
+export const ContentWrapperMain = styled(ContentWrapper)``;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 23px;
-  text-align: left;
-
-  margin-top: 15px;
-  height: 41px;
-  padding: 9px 40px;
-
-  color: #ffffff;
+export const ContentLabelMain = styled(ContentLabel)`
+  margin-left: 50px;
 `;
 
 export const ContainerIncedent = styled.div`

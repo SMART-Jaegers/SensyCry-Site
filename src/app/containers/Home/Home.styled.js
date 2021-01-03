@@ -41,4 +41,8 @@ export const MainButton = styled(ButtonStyled)`
   background: rgba(255, 255, 255, 0);
   align-self: center;
   font-size: 24px;
+  :hover,
+  :active {
+    color: #6a5551;
+  }
 `;

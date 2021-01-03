@@ -2,7 +2,8 @@ import React from "react";
 import {
   CircleLoaderContainer,
   ContainerIncedent,
-  ContentLabel,
+  ContentLabelMain,
+  ContentWrapperMain,
   ContentStyled,
 } from "./Main.styled";
 import CardIncedent from "../../components/Card/IncedentCard";
@@ -13,7 +14,9 @@ const Main = () => {
   const { data, isLoading, error } = useFetchData();
   return (
     <ContentStyled>
-      <ContentLabel>Останні сигнали</ContentLabel>
+      <ContentWrapperMain>
+        <ContentLabelMain>Останні сигнали</ContentLabelMain>
+      </ContentWrapperMain>
       <CircleLoaderContainer>
         <CircleLoader color="#79a3ad" loading={isLoading} size={400} />
       </CircleLoaderContainer>
