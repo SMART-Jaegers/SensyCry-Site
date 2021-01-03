@@ -9,22 +9,31 @@ import {
   FooterHotLineHeader,
   FooterHotLinePhone,
   FooterMainHeader,
-  CitiesLabel,
   FooterBottom,
-  CitiesSelect,
+  ButtonChoice,
 } from "./Footer.styled";
+import { Menu, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+
+const menu = (
+  <Menu>
+    <Menu.Item>Львів</Menu.Item>
+    <Menu.Item>Жидачів</Menu.Item>
+    <Menu.Item>Київ</Menu.Item>
+  </Menu>
+);
 
 const Footer = () => {
   return (
     <FooterStyled>
       <AskForHelp>
         <FooterMainHeader>Звернутись по допомогу</FooterMainHeader>
-        <CitiesLabel>
-          <CitiesSelect name="Cities" id="city-select">
-            <option value="Lviv">Львів</option>
-            <option value="Zhydachiv">Жидачів</option>
-          </CitiesSelect>
-        </CitiesLabel>
+        <Dropdown overlay={menu}>
+          <ButtonChoice>
+            виберіть місто
+            <DownOutlined twoToneColor="#316C7A" />
+          </ButtonChoice>
+        </Dropdown>
       </AskForHelp>
       <HotLines>
         <HotLine>
@@ -39,7 +48,7 @@ const Footer = () => {
           </FooterParagraph>
         </HotLine>
       </HotLines>
-      <FooterBottom>1</FooterBottom>
+      <FooterBottom></FooterBottom>
     </FooterStyled>
   );
 };
