@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const SignalsWrapper = styled.div`
+  margin-left: 2vw;
   display: flex;
   justify-content: space-around flex-start;
   flex-wrap: wrap;
