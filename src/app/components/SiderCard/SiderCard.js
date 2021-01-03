@@ -3,20 +3,20 @@ import {
   CardInfo,
   CardStyled,
   FamilyName,
-  NumberIncedent,
+  FamilyId,
   AddressStyled,
+  FamilyInfo,
 } from "./SiderCard.styled";
-import { Space } from "antd";
 
-const SiderCard = () => {
+const SiderCard = ({ familyId, surname, address }) => {
   return (
     <CardStyled hoverable>
       <CardInfo>
-        <Space size={50}>
-          <NumberIncedent>№123456789</NumberIncedent>
-          <FamilyName>Петренович</FamilyName>
-        </Space>
-        <AddressStyled>вул.Героїв УПА, 10/4</AddressStyled>
+        <FamilyInfo>
+          <FamilyId>№ {familyId}</FamilyId>
+          <FamilyName>{surname}</FamilyName>
+        </FamilyInfo>
+        <AddressStyled>{address}</AddressStyled>
       </CardInfo>
     </CardStyled>
   );
