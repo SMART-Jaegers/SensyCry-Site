@@ -25,7 +25,7 @@ export const ContentWrapperSignals = styled(ContentWrapper)`
 export const TextWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 30vw;
+  width: 18vw;
   margin: auto 0px auto 50px;
 `;
 

@@ -6,9 +6,9 @@ import {
   InfoStartTime,
   StartTimeWrapper,
   ArrowStyled,
+  CardInfoStyled,
 } from "./SignalCard.styled";
-import CardInfo from "../../Card/CardInfo/CardInfo";
-import arrow from "../../../images/arrow.jpg";
+import arrow from "../../../images/arrow.svg";
 
 const SignalCard = ({ period = "00:09:45", startTime = "19:38:47" }) => {
   return (
@@ -18,7 +18,13 @@ const SignalCard = ({ period = "00:09:45", startTime = "19:38:47" }) => {
           <TitleStartTime>Початок</TitleStartTime>
           <InfoStartTime>{startTime}</InfoStartTime>
         </StartTimeWrapper>
-        <CardInfo color="#9C687A" title="протягом" info={period} icon="clock" />
+        <CardInfoStyled
+          color="#9C687A"
+          title="протягом"
+          info={period}
+          icon="clock"
+          marginTop="0px"
+        />
       </CardInner>
       <ArrowStyled src={arrow} />
     </CardStyled>

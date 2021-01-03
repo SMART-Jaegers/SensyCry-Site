@@ -4,7 +4,7 @@ import { RobotoText } from "../IncedentCard.styled";
 export const InfoContainer = styled.div`
   display: inline-flex;
   justify-content: space-around;
-  margin-top: 18px;
+  margin-top: ${(props) => props.marginTop};
 `;
 
 export const TitleResult = styled(RobotoText)`
