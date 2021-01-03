@@ -7,6 +7,11 @@ import {
 } from "react-router-dom";
 import Home from "../Home/Home";
 import Main from "../Main/Main";
+import { LayoutStyled } from "./Navigation.styled";
+import { Layout } from "antd";
+
+import Header from "../Headers/HeaderOther/Header";
+import Sider from "../Sider/Sider";
 
 const Navigation = () => {
   return (
@@ -16,8 +21,16 @@ const Navigation = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/main">
-          <Main />
+        <Route path="/user">
+          <LayoutStyled>
+            <Header />
+            <Layout>
+              <Sider />
+              <Route path="/user/main">
+                <Main />
+              </Route>
+            </Layout>
+          </LayoutStyled>
         </Route>
       </Switch>
     </Router>
