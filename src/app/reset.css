@@ -2,6 +2,6 @@ p {
   margin: 0;
 }
 
-p::selection, h1::selection{
+p::selection, h1::selection, input::selection{
   background:  #316C7A;
 }

@@ -1,32 +1,44 @@
-import { render } from "@testing-library/react";
 import axios from "axios";
-import { addAddress } from "./ProcessResult";
+import { addApartamentSurname, addIncedentInfo } from "./ProcessResult";
 
 const restApi = axios.create({
-  baseURL: "http://localhost:8081/sensycry",
+  baseURL: "http://localhost:8081/sensycry/",
   responseType: "json",
 });
 
-export const fetchIncedent = async () => {
+export const fetchIncedent = async (link) => {
   try {
-    let responseData = await restApi.get("/incedent/all/10");
-    let data = await addAddress(responseData.data);
+    let responseData = await restApi.get(link);
+    const link_resource = link.split("/")[0];
+    let data;
+    switch (link_resource) {
+      case "incedent":
+        data = await addIncedentInfo(responseData.data);
+        break;
+      case "apartment":
+        data = await addApartamentSurname(responseData.data);
+        break;
+
+      default:
+        data = responseData.data;
+        break;
+    }
     return data;
   } catch (error) {
-    console.log("error, cant fetch incedents", error);
-    return [];
+    console.log(` cant fetch data  by link: ${link}, error: ${error}`);
+    return null;
   }
 };
 
-export const fetchIncedentById = async (id) => {
-  try {
-    let responseElement = await restApi.get("/incedent" + id);
-    return responseElement.data;
-  } catch (error) {
-    console.log("error, cant fetch incedent");
-    return error;
-  }
-};
+// export const fetchIncedentById = async (id) => {
+//   try {
+//     let responseElement = await restApi.get("/incedent" + id);
+//     return [responseElement.data];
+//   } catch (error) {
+//     console.log("error, cant fetch incedent", error);
+//     return [];
+//   }
+// };
 
 // export const patchData = async (element) => {
 //   try {
@@ -36,22 +48,22 @@ export const fetchIncedentById = async (id) => {
 //   }
 // };
 
-export const fetchApartamentById = async (id) => {
-  try {
-    let responseElement = await restApi.get("/apartment" + id);
-    return responseElement.data;
-  } catch (error) {
-    console.log("error, cant fetch apartament");
-    return error;
-  }
-};
+// export const fetchApartamentById = async (id) => {
+//   try {
+//     let responseElement = await restApi.get("/apartment" + id);
+//     return responseElement.data;
+//   } catch (error) {
+//     console.log("error, cant fetch apartament");
+//     return error;
+//   }
+// };
 
-export const fetchByLink = async (link) => {
+export const fetchByLinkOne = async (link) => {
   try {
     let response = await axios.get(link);
     return response.data;
   } catch (error) {
-    console.log("error, cant fetch custom element");
-    return error;
+    console.log(` cant fetch element by link: ${link}, error: ${error}`);
+    return null;
   }
 };

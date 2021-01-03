@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Layout } from "antd";
-import CircleLoader from "react-spinners/CircleLoader";
 
 const { Content } = Layout;
 

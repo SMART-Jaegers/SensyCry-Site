@@ -24,8 +24,12 @@ export const CardInfo = styled.div`
   padding: 10px 20px;
 `;
 
-export const NumberIncedent = styled(RobotoText)`
-  display: inline;
+export const FamilyInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const FamilyId = styled(RobotoText)`
   font-size: 16px;
   line-height: 19px;
   color: #316c7a;
@@ -34,7 +38,6 @@ export const NumberIncedent = styled(RobotoText)`
 export const FamilyName = styled(RobotoText)`
   font-size: 15px;
   line-height: 18px;
-
   color: #79a3ad;
 `;
 
