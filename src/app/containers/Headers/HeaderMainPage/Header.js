@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   UserInfo,
   LogOutStyled,
@@ -14,6 +14,8 @@ import logo from "../../../images/logo.svg";
 
 const Header = () => {
   let history = useHistory();
+  let location = useLocation();
+  let selectedKey = location.pathname.split("/")[2];
 
   const handleClick = (e) => {
     const key = e.key;
@@ -25,19 +27,20 @@ const Header = () => {
       history.push("/user/message");
     }
   };
+
   return (
     <HeaderStyled>
       <UserInfo>
         <IconStyled>ПВ</IconStyled>
         <div>
           <NameStyled>Петренко Василь</NameStyled>
-          <LogOutStyled>sdsf</LogOutStyled>
+          <LogOutStyled />
         </div>
       </UserInfo>
       <MenuStyled
         mode="horizontal"
         onClick={handleClick}
-        defaultSelectedKeys={["main"]}
+        defaultSelectedKeys={selectedKey}
       >
         <ItemStyled key="main">Головна</ItemStyled>
         <ItemStyled key="family">Сім'я</ItemStyled>

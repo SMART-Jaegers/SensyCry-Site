@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Image } from "antd";
 import { ContentWrapper } from "../../ContentLabel/ContentLabel.styled";
 import { ContentLabel } from "../../ContentLabel/ContentLabel.styled";
 

@@ -3,15 +3,20 @@ import SignalHeader from "./SignalHeader/SignalHeader";
 import SignalCard from "./SignalCard/SignalCard";
 import { SignalsWrapper, Wrapper } from "./Signal.styled";
 
-const Signal = ({ date = "2020.10.26" }) => {
+const Signal = ({ date = "2020.10.26", source = [] }) => {
   return (
     <Wrapper>
       <SignalHeader date={date}></SignalHeader>
       <SignalsWrapper>
-        <SignalCard startTime="19:37:47" period="00:09:45"></SignalCard>
-        <SignalCard startTime="19:37:47" period="00:09:45"></SignalCard>
-        <SignalCard startTime="19:37:47" period="00:09:45"></SignalCard>
-        <SignalCard startTime="19:37:47" period="00:09:45"></SignalCard>
+        {source.map((element) => {
+          return (
+            <SignalCard
+              key={element.incidentId}
+              startTime={element.date}
+              period={element.duringTime}
+            ></SignalCard>
+          );
+        })}
       </SignalsWrapper>
     </Wrapper>
   );

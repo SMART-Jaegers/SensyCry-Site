@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Layout, Input } from "antd";
-import NumberFormat from "react-number-format";
 
 const { Sider } = Layout;
 

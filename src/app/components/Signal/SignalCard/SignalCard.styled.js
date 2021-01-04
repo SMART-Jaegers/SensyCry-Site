@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Image } from "antd";
+import { Card } from "antd";
 import { RobotoText } from "../../Card/IncedentCard.styled";
 import CardInfo from "../../Card/CardInfo/CardInfo";
 

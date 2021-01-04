@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ButtonStyled } from "../../../components/Buttons/MainButton.styled";
-import { Button } from "antd";
 
 export const Wrapper = styled.div`
   display: flex;
