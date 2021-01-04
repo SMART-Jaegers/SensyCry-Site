@@ -10,17 +10,17 @@ import {
   DocumentName,
   AddressName,
   ContentWrapperSignals,
-  SignalDateWrapper,
-  SignalDate,
 } from "./Family.styled";
 import useFetchData from "../../Utils/FetchHook";
 import CircleLoader from "react-spinners/CircleLoader";
 import document from "../../images/document.jpg";
 import location from "../../images/location.jpg";
 import Signal from "../../components/Signal/Signal";
+import { CircleLoaderContainer } from "../Main/Main.styled";
 
 const Main = () => {
-  const { data, isLoading, error } = useFetchData();
+  const { data, isLoading, error } = useFetchData("incedent/apartment/1");
+
   return (
     <ContentStyled>
       <ContentWrapperFamily>
@@ -45,7 +45,27 @@ const Main = () => {
           <ContentLabelFamily>Сигнали</ContentLabelFamily>
         </TextWrapper>
       </ContentWrapperSignals>
-      <Signal date="2020.10.26"></Signal>
+      <CircleLoaderContainer>
+        <CircleLoader color="#79a3ad" loading={isLoading} size={400} />
+      </CircleLoaderContainer>
+      {isLoading ? (
+        <div />
+      ) : error === null ? (
+        Object.keys(data).map((dayOfIncedent) => {
+          return (
+            <Signal
+              key={dayOfIncedent}
+              date={dayOfIncedent}
+              source={data[dayOfIncedent]}
+            />
+          );
+        })
+      ) : (
+        <p>
+          No connection to server
+          <br /> Please try again later
+        </p>
+      )}
     </ContentStyled>
   );
 };

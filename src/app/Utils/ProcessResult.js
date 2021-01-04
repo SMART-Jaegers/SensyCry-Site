@@ -24,3 +24,17 @@ export const addApartamentSurname = async (data) => {
   }
   return data;
 };
+
+export const formatIncedentForFamily = async (data) => {
+  let formatedData = {};
+  for (let element of data) {
+    let key = element.date.split("T")[0];
+    let formatedTime = element.date.split("T")[1].split("+")[0];
+    element.date = `${formatedTime.substring(0, 8)}`;
+    if (formatedData[key] === undefined) {
+      formatedData[key] = [];
+    }
+    formatedData[key].push(element);
+  }
+  return formatedData;
+};

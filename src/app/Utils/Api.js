@@ -1,5 +1,9 @@
 import axios from "axios";
-import { addApartamentSurname, addIncedentInfo } from "./ProcessResult";
+import {
+  addApartamentSurname,
+  addIncedentInfo,
+  formatIncedentForFamily,
+} from "./ProcessResult";
 
 const restApi = axios.create({
   baseURL: "http://localhost:8081/sensycry/",
@@ -13,6 +17,10 @@ export const fetchIncedent = async (link) => {
     let data;
     switch (link_resource) {
       case "incedent":
+        if (link.split("/")[1] === "apartment") {
+          data = formatIncedentForFamily(responseData.data);
+          break;
+        }
         data = await addIncedentInfo(responseData.data);
         break;
       case "apartment":
