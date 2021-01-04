@@ -17,27 +17,39 @@ import document from "../../images/document.jpg";
 import location from "../../images/location.jpg";
 import Signal from "../../components/Signal/Signal";
 import { CircleLoaderContainer } from "../Main/Main.styled";
+import { generateFamilyInfo } from "../../Utils/GeneratorWord";
 
 const Main = () => {
   const { data, isLoading, error } = useFetchData("incedent/apartment/1");
-
+  const {
+    data: family,
+    isLoading: isFamilyLoading,
+    error: errorInFamily,
+  } = useFetchData("apartment/1", false);
+  console.log(family, isFamilyLoading, errorInFamily);
+  // console.log(data, isLoading, error);
   return (
     <ContentStyled>
       <ContentWrapperFamily>
         <TextWrapper>
-          <ContentLabelFamily>№12345</ContentLabelFamily>
+          <ContentLabelFamily>№{family.familyId}</ContentLabelFamily>
           <ContentLabelFamily>-</ContentLabelFamily>
-          <ContentLabelFamily>Петренович</ContentLabelFamily>
+          <ContentLabelFamily>{family.surname}</ContentLabelFamily>
         </TextWrapper>
       </ContentWrapperFamily>
       <FamilyInfoWrapper>
         <DocumentAddressWraper>
-          <ImageStyled src={document} />
-          <DocumentName> Петренович.docx</DocumentName>
+          <ImageStyled
+            src={document}
+            onClick={() => {
+              generateFamilyInfo(family);
+            }}
+          />
+          <DocumentName> {family.surname}.docx</DocumentName>
         </DocumentAddressWraper>
         <DocumentAddressWraper>
           <ImageStyled src={location} />
-          <AddressName> м. Львів, вул. Героїв УПА, 10/4</AddressName>
+          <AddressName> {family.address}</AddressName>
         </DocumentAddressWraper>
       </FamilyInfoWrapper>
       <ContentWrapperSignals>

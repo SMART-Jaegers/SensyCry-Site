@@ -1,4 +1,4 @@
-import { fetchByLinkOne, fetchIncedent } from "./Api";
+import { fetchByLinkOne, fetchData } from "./Api";
 
 export const addIncedentInfo = async (data) => {
   for (let element of data) {
@@ -15,7 +15,7 @@ export const addIncedentInfo = async (data) => {
 
 export const addApartamentSurname = async (data) => {
   for (let element of data) {
-    let value = await fetchIncedent(element.links[2].href);
+    let value = await fetchData(element.links[2].href);
     if (value[0] === undefined) {
       element.surname = null;
       continue;
@@ -37,4 +37,15 @@ export const formatIncedentForFamily = async (data) => {
     formatedData[key].push(element);
   }
   return formatedData;
+};
+
+export const generateFamily = async (element) => {
+  let value = await fetchData(element._links.persons.href);
+  if (value[0] === undefined) {
+    element.surname = null;
+  }
+  element.surname = value[0].surname;
+  element.persons = value;
+
+  return element;
 };
