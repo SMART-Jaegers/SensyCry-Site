@@ -42,7 +42,7 @@ export const IconStyled = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  /* text-align: center; */
+  text-align: center;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;

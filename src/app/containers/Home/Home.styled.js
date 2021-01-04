@@ -25,12 +25,14 @@ export const HeadingImage = styled(Image)`
 
 export const MainHeader = styled(Header)`
   position: absolute;
+  display: inline-block;
   left: 0;
   right: 0;
 
   font-weight: 70;
   font-size: 2.5rem;
   line-height: 2.93rem;
+  text-align: center;
 `;
 
 export const MainButton = styled(ButtonStyled)`

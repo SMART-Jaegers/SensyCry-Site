@@ -74,10 +74,11 @@ export const ResultStyled = styled.div`
 `;
 
 export const CardButton = styled(Button)`
+  display: block;
   background: #9c687a;
   border-radius: 6px;
   width: 250px;
-  margin-top: 18px;
+  margin: 18px auto;
   font-family: Roboto;
   font-size: 14px;
   line-height: 16px;

@@ -11,7 +11,8 @@ import useFetchData from "../../Utils/FetchHook";
 import CircleLoader from "react-spinners/CircleLoader";
 
 const Main = () => {
-  const { data, isLoading, error } = useFetchData();
+  const { data, isLoading, error } = useFetchData("incedent/all/10");
+
   return (
     <ContentStyled>
       <ContentWrapperMain>
@@ -21,12 +22,14 @@ const Main = () => {
         <CircleLoader color="#79a3ad" loading={isLoading} size={400} />
       </CircleLoaderContainer>
       <ContainerIncedent>
-        {error === null ? (
+        {isLoading ? (
+          <div />
+        ) : error === null ? (
           data.map((element) => {
             return (
               <CardIncedent
-                key={element.incidentId}
-                incedentId={element.incidentId}
+                key={element.incidentId.toString()}
+                incedentId={element.familyId}
                 date={element.date}
                 address={element.address}
                 time={element.duringTime}
@@ -34,8 +37,6 @@ const Main = () => {
               />
             );
           })
-        ) : isLoading ? (
-          <div />
         ) : (
           <p>
             No connection to server
