@@ -9,6 +9,8 @@
     "@types/react-transition-group": "^4.4.0",
     "antd": "^4.9.4",
     "axios": "^0.21.1",
+    "docx": "^5.4.1",
+    "file-saver": "^2.0.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-animation": "^1.2.2",

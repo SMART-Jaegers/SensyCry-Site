@@ -51,6 +51,7 @@ export const NumberIncedent = styled(RobotoText)`
   font-size: 16px;
   line-height: 19px;
   color: #316c7a;
+  user-select: none;
 `;
 
 export const DateTextStyled = styled(RobotoText)`
@@ -58,6 +59,7 @@ export const DateTextStyled = styled(RobotoText)`
   font-size: 12px;
   line-height: 14px;
   color: #79a3ad;
+  user-select: none;
 `;
 
 export const AddressStyled = styled(RobotoText)`

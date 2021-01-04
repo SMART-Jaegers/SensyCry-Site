@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { fetchIncedent } from "./Api";
+import { fetchByLinkOne, fetchData } from "./Api";
 
-const useFetchData = (link) => {
+const useFetchData = (link, many = "true") => {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchIncedent(link)
+    fetchData(link, many)
       .then((data) => {
         setData(data);
         if (data === null) {
@@ -15,7 +15,7 @@ const useFetchData = (link) => {
         }
       })
       .finally(() => setLoading(false));
-  }, [link]);
+  }, [link, many]);
   return { data, isLoading, error };
 };
 

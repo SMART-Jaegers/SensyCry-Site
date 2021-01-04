@@ -27,6 +27,7 @@ export const CardInfo = styled.div`
 export const FamilyInfo = styled.div`
   display: flex;
   justify-content: space-between;
+  user-select: none;
 `;
 
 export const FamilyId = styled(RobotoText)`
@@ -46,4 +47,5 @@ export const AddressStyled = styled(RobotoText)`
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
+  user-select: none;
 `;

@@ -1,26 +1,39 @@
 import axios from "axios";
-import { addApartamentSurname, addIncedentInfo } from "./ProcessResult";
+import {
+  addApartamentSurname,
+  addIncedentInfo,
+  formatIncedentForFamily,
+  generateFamily,
+} from "./ProcessResult";
 
 const restApi = axios.create({
   baseURL: "http://localhost:8081/sensycry/",
   responseType: "json",
 });
 
-export const fetchIncedent = async (link) => {
+export const fetchData = async (link, many) => {
   try {
     let responseData = await restApi.get(link);
+
     const link_resource = link.split("/")[0];
-    let data;
+    let data = responseData.data;
     switch (link_resource) {
       case "incedent":
-        data = await addIncedentInfo(responseData.data);
+        if (link.split("/")[1] === "apartment") {
+          data = formatIncedentForFamily(data);
+          break;
+        }
+        data = await addIncedentInfo(data);
         break;
       case "apartment":
-        data = await addApartamentSurname(responseData.data);
+        if (!many) {
+          data = generateFamily(data);
+        } else {
+          data = await addApartamentSurname(data);
+        }
         break;
 
       default:
-        data = responseData.data;
         break;
     }
     return data;

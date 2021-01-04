@@ -1,12 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SiderCard from "../../components/SiderCard/SiderCard";
 import useFetchData from "../../Utils/FetchHook";
-import {
-  DistrictName,
-  InputStyled,
-  NumberFormatStyled,
-  SiderStyled,
-} from "./Sider.styled";
+import { DistrictName, InputStyled, SiderStyled } from "./Sider.styled";
 import NumberFormat from "react-number-format";
 
 const Sider = () => {
