@@ -4,15 +4,15 @@ import {
   SignalDateWrapper,
   SignalDate,
   ImageStyled,
+  ContentLabelStyled,
 } from "./SignalHeader.styled";
-import { ContentLabel } from "../../ContentLabel/ContentLabel.styled";
 
 const SignalHeader = ({ date = "2020.10.26" }) => {
   return (
     <SignalDateWrapper>
       <SignalDate>
         <ImageStyled src={calendar} />
-        <ContentLabel>{date}</ContentLabel>
+        <ContentLabelStyled>{date}</ContentLabelStyled>
       </SignalDate>
     </SignalDateWrapper>
   );

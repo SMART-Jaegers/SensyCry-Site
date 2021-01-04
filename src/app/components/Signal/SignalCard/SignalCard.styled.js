@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import { Card, Image } from "antd";
 import { RobotoText } from "../../Card/IncedentCard.styled";
+import CardInfo from "../../Card/CardInfo/CardInfo";
 
 export const CardStyled = styled(Card)`
-  width: 290px;
+  width: 300px;
   height: 70px;
   border: none;
   border-radius: 11px;
   background: #9c687a;
   margin: 20px;
-  display: flex;
   .ant-card-body {
     padding: 0;
     height: 100%;
+    display: flex;
+    flex-direction: row;
   }
 `;
 
@@ -20,16 +22,20 @@ export const CardInner = styled.div`
   background: #ffffff;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  width: 94%;
+  width: 90%;
   height: 100%;
-  padding: 10px 20px;
+  padding: 5px 15px;
+  border: #9c687a 2px solid;
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const StartTimeWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: -5px;
 `;
 
 export const TitleStartTime = styled(RobotoText)`
@@ -47,6 +53,10 @@ export const InfoStartTime = styled(RobotoText)`
   user-select: none;
 `;
 
-export const ArrowStyled = styled(Image)`
-  margin: auto 0;
+export const CardInfoStyled = styled(CardInfo)`
+  margin-top: 0px;
+`;
+
+export const ArrowStyled = styled.img`
+  margin: auto 0 auto 4px;
 `;
