@@ -5,3 +5,7 @@ p {
 p::selection, h1::selection, input::selection{
   background:  #316C7A;
 }
+
+svg{
+  margin: 0;
+}
