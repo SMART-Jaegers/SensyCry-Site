@@ -26,15 +26,18 @@ const Main = () => {
     isLoading: isFamilyLoading,
     error: errorInFamily,
   } = useFetchData("apartment/1", false);
-  console.log(family, isFamilyLoading, errorInFamily);
-  // console.log(data, isLoading, error);
+
   return (
     <ContentStyled>
       <ContentWrapperFamily>
         <TextWrapper>
-          <ContentLabelFamily>№{family.familyId}</ContentLabelFamily>
+          <ContentLabelFamily>
+            {family ? `№${family.familyId}` : "No info"}
+          </ContentLabelFamily>
           <ContentLabelFamily>-</ContentLabelFamily>
-          <ContentLabelFamily>{family.surname}</ContentLabelFamily>
+          <ContentLabelFamily>
+            {family ? `${family.surname}` : ""}
+          </ContentLabelFamily>
         </TextWrapper>
       </ContentWrapperFamily>
       <FamilyInfoWrapper>
@@ -45,11 +48,11 @@ const Main = () => {
               generateFamilyInfo(family);
             }}
           />
-          <DocumentName> {family.surname}.docx</DocumentName>
+          <DocumentName> {family ? `${family.surname}` : ""}.docx</DocumentName>
         </DocumentAddressWraper>
         <DocumentAddressWraper>
           <ImageStyled src={location} />
-          <AddressName> {family.address}</AddressName>
+          <AddressName> {family ? `${family.address}` : ""}</AddressName>
         </DocumentAddressWraper>
       </FamilyInfoWrapper>
       <ContentWrapperSignals>
