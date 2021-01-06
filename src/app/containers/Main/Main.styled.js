@@ -30,7 +30,6 @@ export const ContentLabelMain = styled(ContentLabel)`
 
 export const ContainerIncedent = styled.div`
   display: flex;
-  /* justify-content: space-around; */
   flex-wrap: wrap;
 `;
 

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.0",
     "@types/react-transition-group": "^4.4.0",
     "antd": "^4.9.4",
+    "aws-sdk": "^2.821.0",
     "axios": "^0.21.1",
     "docx": "^5.4.1",
     "file-saver": "^2.0.5",

@@ -9,14 +9,12 @@ import {
 import CardIncedent from "../../components/Card/IncedentCard";
 import useFetchData from "../../Utils/FetchHook";
 import CircleLoader from "react-spinners/CircleLoader";
-import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 
 const Main = () => {
   const { data, isLoading, error } = useFetchData("incedent/all/10");
 
   return (
     <ContentStyled>
-      <AudioPlayer />
       <ContentWrapperMain>
         <ContentLabelMain>Останні сигнали</ContentLabelMain>
       </ContentWrapperMain>
