@@ -3,8 +3,6 @@ import Icon from "../../../app-icons/Icon";
 import { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { AudioPlayerStyled } from "./AudioPlayer.styled";
-import testAudio from "../../../testData/SoundHelix-Song-1.mp3";
-import testAudio1 from "../../../testData/test2.wav";
 
 const AudioPlayer = () => {
   return (

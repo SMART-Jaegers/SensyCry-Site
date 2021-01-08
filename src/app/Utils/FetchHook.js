@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchByLinkOne, fetchData } from "./Api";
+import { getData } from "./Api";
 
 const useFetchData = (link, many = "true") => {
   const [data, setData] = useState([]);
@@ -7,7 +7,7 @@ const useFetchData = (link, many = "true") => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchData(link, many)
+    getData(link, many)
       .then((data) => {
         setData(data);
         if (data === null) {

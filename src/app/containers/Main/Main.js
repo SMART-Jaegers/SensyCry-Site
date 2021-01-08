@@ -29,11 +29,7 @@ const Main = () => {
             return (
               <CardIncedent
                 key={element.incidentId.toString()}
-                incedentId={element.familyId}
-                date={element.date}
-                address={element.address}
-                time={element.duringTime}
-                rate={element.accuracy}
+                incedent={element}
               />
             );
           })

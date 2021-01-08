@@ -17,8 +17,6 @@ const Sider = () => {
   const handleChange = (e) => {
     const inputText = e.target.value.split(" ")[1];
 
-    console.log(inputText);
-
     if (inputText !== undefined) {
       if (inputText.length === 1) {
         setLinkId(inputText);
@@ -48,12 +46,7 @@ const Sider = () => {
         family.map((element) => {
           if (element.surname !== null) {
             return (
-              <SiderCard
-                key={element.familyId.toString()}
-                familyId={element.familyId}
-                surname={element.surname}
-                address={element.address}
-              />
+              <SiderCard key={element.familyId.toString()} family={element} />
             );
           }
           return null;

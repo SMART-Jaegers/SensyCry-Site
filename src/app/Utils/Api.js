@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  addApartamentSurname,
   addIncedentInfo,
   formatIncedentForFamily,
   generateFamily,
@@ -11,72 +10,48 @@ const restApi = axios.create({
   responseType: "json",
 });
 
-export const fetchData = async (link, many) => {
+export const fetchData = async (link) => {
   try {
     let responseData = await restApi.get(link);
-
-    const link_resource = link.split("/")[0];
-    let data = responseData.data;
-    switch (link_resource) {
-      case "incedent":
-        if (link.split("/")[1] === "apartment") {
-          data = formatIncedentForFamily(data);
-          break;
-        }
-        data = await addIncedentInfo(data);
-        break;
-      case "apartment":
-        if (!many) {
-          data = generateFamily(data);
-        } else {
-          data = await addApartamentSurname(data);
-        }
-        break;
-
-      default:
-        break;
-    }
-    return data;
+    return responseData.data;
   } catch (error) {
     console.log(` cant fetch data  by link: ${link}, error: ${error}`);
     return null;
   }
 };
 
-// export const fetchIncedentById = async (id) => {
-//   try {
-//     let responseElement = await restApi.get("/incedent" + id);
-//     return [responseElement.data];
-//   } catch (error) {
-//     console.log("error, cant fetch incedent", error);
-//     return [];
-//   }
-// };
+export const getData = async (link, many) => {
+  let data = await fetchData(link);
 
-// export const patchData = async (element) => {
-//   try {
-//     await restApi.put("/" + element.id, element);
-//   } catch {
-//     console.log("error, cant patch element");
-//   }
-// };
+  const link_resource = link.split("/")[0];
 
-// export const fetchApartamentById = async (id) => {
-//   try {
-//     let responseElement = await restApi.get("/apartment" + id);
-//     return responseElement.data;
-//   } catch (error) {
-//     console.log("error, cant fetch apartament");
-//     return error;
-//   }
-// };
+  switch (link_resource) {
+    case "incedent":
+      if (!many) {
+        data = addIncedentInfo(data);
+        break;
+      }
+      data.forEach((element) => {
+        element = addIncedentInfo(element);
+      });
+      if (link.split("/")[1] === "apartment") {
+        data = formatIncedentForFamily(data);
+      }
+      break;
 
-export const fetchByLinkOne = async (link) => {
-  try {
-    let response = await axios.get(link);
-    return response.data;
-  } catch (error) {
-    console.log(` cant fetch element by link: ${link}, error: ${error}`);
-    return null;
+    case "apartment":
+      if (!many) {
+        data = generateFamily(data);
+      } else {
+        data.forEach((element) => {
+          element = generateFamily(element);
+        });
+      }
+      break;
+
+    default:
+      break;
   }
+
+  return data;
 };

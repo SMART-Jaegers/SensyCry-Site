@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   CardInfo,
   CardStyled,
@@ -8,15 +9,22 @@ import {
   FamilyInfo,
 } from "./SiderCard.styled";
 
-const SiderCard = ({ familyId, surname, address }) => {
+const SiderCard = ({ family }) => {
+  let history = useHistory();
+
+  const goToFamily = () => {
+    history.push(`/user/family/${family.familyId}`, family);
+    // console.log(history);
+  };
+
   return (
-    <CardStyled hoverable>
+    <CardStyled hoverable onClick={goToFamily}>
       <CardInfo>
         <FamilyInfo>
-          <FamilyId>№ {familyId}</FamilyId>
-          <FamilyName>{surname}</FamilyName>
+          <FamilyId>№ {family.familyId}</FamilyId>
+          <FamilyName>{family.surname}</FamilyName>
         </FamilyInfo>
-        <AddressStyled>{address}</AddressStyled>
+        <AddressStyled>{family.address}</AddressStyled>
       </CardInfo>
     </CardStyled>
   );
