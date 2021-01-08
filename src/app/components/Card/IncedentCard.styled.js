@@ -46,7 +46,7 @@ export const HeaderStyled = styled.div`
   padding: 0 20px;
 `;
 
-export const NumberIncedent = styled(RobotoText)`
+export const NumberFamily = styled(RobotoText)`
   display: inline;
   font-size: 16px;
   line-height: 19px;

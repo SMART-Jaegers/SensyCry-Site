@@ -46,12 +46,7 @@ const Sider = () => {
         family.map((element) => {
           if (element.surname !== null) {
             return (
-              <SiderCard
-                key={element.familyId.toString()}
-                familyId={element.familyId}
-                surname={element.surname}
-                address={element.address}
-              />
+              <SiderCard key={element.familyId.toString()} family={element} />
             );
           }
           return null;

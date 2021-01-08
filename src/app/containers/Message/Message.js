@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   ContentStyled,
   ContentLabelMessage,
@@ -17,13 +16,13 @@ import {
   MessageInnerTime,
   DateTimeWrapper,
 } from "./Message.styled";
-import useFetchData from "../../Utils/FetchHook";
-import CircleLoader from "react-spinners/CircleLoader";
 import document from "../../images/document.jpg";
 import plus from "../../images/plus.svg";
 import calendar from "../../images/calendar.jpg";
 import pink_clock from "../../images/pink-clock.svg";
 import scale_blue from "../../images/scale-blue.svg";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import { useLocation } from "react-router-dom";
 
 const MessageInfoInnerPeriod = ({
   period = "00:09:45",
@@ -72,7 +71,7 @@ const MessageInfo = ({
       </GreenWrapper>
       <MessageInfoWrapper>
         <MessageInfoInnerPeriod period={period} picture={pink_clock} />
-        <div>Audio Player should be here/</div>
+        <AudioPlayer />
         <MessageInfoInnerScale scale={scale} picture={scale_blue} />
       </MessageInfoWrapper>
     </ContentStyled>
@@ -80,27 +79,24 @@ const MessageInfo = ({
 };
 
 const Message = () => {
-  const { data, isLoading, error } = useFetchData("incedent/apartment/1");
-  const {
-    data: family,
-    isLoading: isFamilyLoading,
-    error: errorInFamily,
-  } = useFetchData("apartment/1", false);
-
+  let location = useLocation();
+  const data = location.state;
+  // console.log(data);
   return (
     <ContentStyled>
       <ContentWrapperMessage>
         <TextWrapper>
-          <ContentLabelMessage>
-            {family ? `№${family.familyId}` : "No info"}
-          </ContentLabelMessage>
+          <ContentLabelMessage>№ {data.apartment.familyId}</ContentLabelMessage>
           <ContentLabelMessage>-</ContentLabelMessage>
-          <ContentLabelMessage>
-            {family ? `${family.surname}` : ""}
-          </ContentLabelMessage>
+          <ContentLabelMessage>{data.surname}</ContentLabelMessage>
         </TextWrapper>
       </ContentWrapperMessage>
-      <MessageInfo />
+      <MessageInfo
+        date={data.dateIncedent}
+        time={data.timeIncedent}
+        period={data.duringTime}
+        scale={data.accuracy}
+      />
       <GreenWrapper>
         <ContentLabelConclusion>Висновок</ContentLabelConclusion>
         <ImageStyled src={plus} />

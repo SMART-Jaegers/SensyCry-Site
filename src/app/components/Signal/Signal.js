@@ -12,8 +12,7 @@ const Signal = ({ date = "2020.10.26", source = [] }) => {
           return (
             <SignalCard
               key={element.incidentId}
-              startTime={element.date}
-              period={element.duringTime}
+              incedent={element}
             ></SignalCard>
           );
         })}

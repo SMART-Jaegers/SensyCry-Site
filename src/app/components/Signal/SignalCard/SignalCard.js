@@ -9,19 +9,26 @@ import {
   CardInfoStyled,
 } from "./SignalCard.styled";
 import arrow from "../../../images/arrow.svg";
+import { useHistory } from "react-router-dom";
 
-const SignalCard = ({ period = "00:09:45", startTime = "19:38:47" }) => {
+const SignalCard = ({ incedent }) => {
+  let history = useHistory();
+
+  const goToMessage = () => {
+    history.push("/user/message", incedent);
+  };
+
   return (
-    <CardStyled hoverable>
+    <CardStyled hoverable onClick={goToMessage}>
       <CardInner>
         <StartTimeWrapper>
           <TitleStartTime>Початок</TitleStartTime>
-          <InfoStartTime>{startTime}</InfoStartTime>
+          <InfoStartTime>{incedent.timeIncedent}</InfoStartTime>
         </StartTimeWrapper>
         <CardInfoStyled
           color="#9C687A"
           title="протягом"
-          info={period}
+          info={incedent.duringTime}
           icon="clock"
           marginTop="0px"
         />
