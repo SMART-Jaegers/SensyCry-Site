@@ -2,7 +2,8 @@ import { fetchByLinkOne, fetchData } from "./Api";
 
 export const addIncedentInfo = async (data) => {
   for (let element of data) {
-    let value = await fetchByLinkOne(element.links[1].href);
+    // let value = await fetchByLinkOne(element.links[1].href);
+    let value = element.apartment;
     element.address = value.address;
     element.familyId = value.familyId;
     let formatedDate = element.date.split("T");
@@ -15,13 +16,15 @@ export const addIncedentInfo = async (data) => {
 
 export const addApartamentSurname = async (data) => {
   for (let element of data) {
-    let value = await fetchData(element.links[2].href);
+    // let value = await fetchData(element.links[2].href);
+    let value = element.people;
     if (value[0] === undefined) {
       element.surname = null;
       continue;
     }
     element.surname = value[0].surname;
   }
+  console.log(data);
   return data;
 };
 
@@ -40,7 +43,8 @@ export const formatIncedentForFamily = async (data) => {
 };
 
 export const generateFamily = async (element) => {
-  let value = await fetchData(element._links.persons.href);
+  // let value = await fetchData(element._links.persons.href);
+  let value = element.people;
   if (value[0] === undefined) {
     element.surname = null;
   }

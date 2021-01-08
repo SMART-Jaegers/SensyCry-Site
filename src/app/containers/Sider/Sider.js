@@ -17,8 +17,6 @@ const Sider = () => {
   const handleChange = (e) => {
     const inputText = e.target.value.split(" ")[1];
 
-    console.log(inputText);
-
     if (inputText !== undefined) {
       if (inputText.length === 1) {
         setLinkId(inputText);

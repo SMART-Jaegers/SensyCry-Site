@@ -42,7 +42,7 @@ Icon.propTypes = {
   color: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   viewBox: PropTypes.string.isRequired,
-  style: PropTypes.shape(PropTypes.object),
+  style: PropTypes.object,
   className: PropTypes.string,
 };
 
