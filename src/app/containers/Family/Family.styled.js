@@ -16,6 +16,7 @@ export const ContentStyled = styled(Content)`
 
 export const ContentLabelFamily = styled(ContentLabel)`
   margin: auto 0;
+  color: #316c7a;
 `;
 export const ContentWrapperFamily = styled(ContentWrapper)``;
 export const ContentWrapperSignals = styled(ContentWrapper)`
