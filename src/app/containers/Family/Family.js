@@ -19,6 +19,7 @@ import Signal from "../../components/Signal/Signal";
 import { CircleLoaderContainer } from "../Main/Main.styled";
 import { generateFamilyInfo } from "../../Utils/GeneratorWord";
 import { useLocation } from "react-router-dom";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const Main = () => {
   let location = useLocation();
@@ -40,53 +41,59 @@ const Main = () => {
   }
   return (
     <ContentStyled>
-      <ContentWrapperFamily>
-        <TextWrapper>
-          <ContentLabelFamily>
-            {family ? `№${family.familyId}` : "No info"}
-          </ContentLabelFamily>
-          <ContentLabelFamily>-</ContentLabelFamily>
-          <ContentLabelFamily>
-            {family ? `${family.surname}` : ""}
-          </ContentLabelFamily>
-        </TextWrapper>
-      </ContentWrapperFamily>
-      <FamilyInfoWrapper>
-        <DocumentAddressWraper>
-          <ImageStyled
-            src={document}
-            onClick={() => {
-              generateFamilyInfo(family);
-            }}
-          />
-          <DocumentName> {family ? `${family.surname}` : ""}.docx</DocumentName>
-        </DocumentAddressWraper>
-        <DocumentAddressWraper>
-          <ImageStyled src={address} />
-          <AddressName> {family ? `${family.address}` : ""}</AddressName>
-        </DocumentAddressWraper>
-      </FamilyInfoWrapper>
-      <ContentWrapperSignals>
-        <TextWrapper>
-          <ContentLabelFamily>Сигнали</ContentLabelFamily>
-        </TextWrapper>
-      </ContentWrapperSignals>
-      {error === null ? (
-        Object.keys(data).map((dayOfIncedent) => {
-          return (
-            <Signal
-              key={dayOfIncedent}
-              date={dayOfIncedent}
-              source={data[dayOfIncedent]}
+      <Scrollbars autoHide>
+        <ContentWrapperFamily>
+          <TextWrapper>
+            <ContentLabelFamily>
+              {family ? `№${family.familyId}` : "No info"}
+            </ContentLabelFamily>
+            <ContentLabelFamily>-</ContentLabelFamily>
+            <ContentLabelFamily>
+              {family ? `${family.surname}` : ""}
+            </ContentLabelFamily>
+          </TextWrapper>
+        </ContentWrapperFamily>
+        <FamilyInfoWrapper>
+          <DocumentAddressWraper>
+            <ImageStyled
+              src={document}
+              onClick={() => {
+                generateFamilyInfo(family);
+              }}
             />
-          );
-        })
-      ) : (
-        <p>
-          No connection to server
-          <br /> Please try again later
-        </p>
-      )}
+            <DocumentName>
+              {" "}
+              {family ? `${family.surname}` : ""}.docx
+            </DocumentName>
+          </DocumentAddressWraper>
+          <DocumentAddressWraper>
+            <ImageStyled src={address} />
+            <AddressName> {family ? `${family.address}` : ""}</AddressName>
+          </DocumentAddressWraper>
+        </FamilyInfoWrapper>
+        <ContentWrapperSignals>
+          <TextWrapper>
+            <ContentLabelFamily>Сигнали</ContentLabelFamily>
+          </TextWrapper>
+        </ContentWrapperSignals>
+
+        {error === null ? (
+          Object.keys(data).map((dayOfIncedent) => {
+            return (
+              <Signal
+                key={dayOfIncedent}
+                date={dayOfIncedent}
+                source={data[dayOfIncedent]}
+              />
+            );
+          })
+        ) : (
+          <p>
+            No connection to server
+            <br /> Please try again later
+          </p>
+        )}
+      </Scrollbars>
     </ContentStyled>
   );
 };

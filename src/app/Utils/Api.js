@@ -6,7 +6,7 @@ import {
 } from "./ProcessResult";
 
 const restApi = axios.create({
-  baseURL: "http://localhost:8081/sensycry/",
+  baseURL: "https://sensycrytest.herokuapp.com/sensycry/",
   responseType: "json",
 });
 
