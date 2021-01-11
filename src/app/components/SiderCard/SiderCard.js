@@ -13,7 +13,7 @@ const SiderCard = ({ family }) => {
   let history = useHistory();
 
   const goToFamily = () => {
-    history.push(`/user/family/${family.familyId}`, family);
+    history.push(`/user/family`, family);
     // console.log(history);
   };
 

@@ -43,7 +43,7 @@ const Sider = () => {
       {isLoading ? (
         <div />
       ) : error === null ? (
-        family.map((element) => {
+        family.slice(0, 6).map((element) => {
           if (element.surname !== null) {
             return (
               <SiderCard key={element.familyId.toString()} family={element} />
