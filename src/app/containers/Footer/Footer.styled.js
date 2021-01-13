@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Header, Paragraph } from "../../components/Text/Text.styled";
 import { Button } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const FooterStyled = styled.div`
   flex-direction: column;
@@ -49,6 +50,15 @@ export const FooterBottom = styled.div`
     rgba(49, 108, 122, 0.6) 100%
   );
   height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AwesomeIconStyled = styled(FontAwesomeIcon)`
+  color: white;
+  font-size: 35px;
+  margin: 0 50px;
 `;
 
 export const FooterParagraph = styled(Paragraph)`

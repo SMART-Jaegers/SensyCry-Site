@@ -28,5 +28,4 @@ export const CircleLoaderContainer = styled.div`
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 `;
