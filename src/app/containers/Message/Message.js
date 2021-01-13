@@ -25,7 +25,6 @@ import pink_clock from "../../images/pink-clock.svg";
 import scale_blue from "../../images/scale-blue.svg";
 import audio from "../../images/audio.svg";
 import { useLocation } from "react-router-dom";
-import { oneOf } from "prop-types";
 
 const MessageInfoInner = ({
   info = "00:09:45",
@@ -53,6 +52,7 @@ const MessageInfo = ({
   time = "19:38:47",
   period = "00:09:45",
   scale = "75",
+  audioPath,
 }) => {
   return (
     <ContentStyled>
@@ -67,7 +67,7 @@ const MessageInfo = ({
         <MessageInfoInner info={period} picture={pink_clock} type="period" />
         <AudioPlayerWrapper>
           <ImageStyled src={audio} />
-          <AudioPlayerStyled />
+          <AudioPlayerStyled source={audioPath} />
         </AudioPlayerWrapper>
 
         <MessageInfoInner
@@ -86,7 +86,7 @@ const MessageInfo = ({
 const Message = () => {
   let location = useLocation();
   const data = location.state;
-  // console.log(data);
+  console.log(data);
   return (
     <ContentStyled>
       <ContentWrapperMessage>
@@ -101,6 +101,7 @@ const Message = () => {
         time={data.timeIncedent}
         period={data.duringTime}
         scale={data.accuracy}
+        audioPath={data.nameRecord}
       />
       <GreenWrapper>
         <ContentLabelConclusion>Висновок</ContentLabelConclusion>
