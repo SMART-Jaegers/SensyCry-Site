@@ -1,5 +1,5 @@
 import React from "react";
-import calendar from "../../../images/calendar.jpg";
+import calendar from "../../../images/calendar.svg";
 import {
   SignalDateWrapper,
   SignalDate,

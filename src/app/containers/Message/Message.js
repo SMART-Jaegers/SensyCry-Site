@@ -15,41 +15,35 @@ import {
   MessageInnerParagraph,
   MessageInnerTime,
   DateTimeWrapper,
+  AudioPlayerStyled,
+  AudioPlayerWrapper,
 } from "./Message.styled";
-import document from "../../images/document.jpg";
+import document from "../../images/document.svg";
 import plus from "../../images/plus.svg";
-import calendar from "../../images/calendar.jpg";
+import calendar from "../../images/calendar.svg";
 import pink_clock from "../../images/pink-clock.svg";
 import scale_blue from "../../images/scale-blue.svg";
-import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import audio from "../../images/audio.svg";
 import { useLocation } from "react-router-dom";
+import { oneOf } from "prop-types";
 
-const MessageInfoInnerPeriod = ({
-  period = "00:09:45",
+const MessageInfoInner = ({
+  info = "00:09:45",
   color = "#9c687a",
   picture,
   text = "протягом",
+  width = "15vw",
+  type,
 }) => {
   return (
-    <MessageInnerWrapper width="15vw">
+    <MessageInnerWrapper width={width}>
       <ImageStyled src={picture} />
       <MessageInnerParagraph color={color}>{text}</MessageInnerParagraph>
-      <MessageInnerTime color={color}>{period}</MessageInnerTime>
-    </MessageInnerWrapper>
-  );
-};
-
-const MessageInfoInnerScale = ({
-  scale = "75",
-  color = "#316C7A",
-  picture,
-  text = "шкала",
-}) => {
-  return (
-    <MessageInnerWrapper width="10vw">
-      <ImageStyled src={picture} />
-      <MessageInnerParagraph color={color}>{text}</MessageInnerParagraph>
-      <MessageInnerParagraph color={color}>{scale}%</MessageInnerParagraph>
+      {type === "scale" ? (
+        <MessageInnerTime color={color}>{info}%</MessageInnerTime>
+      ) : (
+        <MessageInnerTime color={color}>{info}</MessageInnerTime>
+      )}
     </MessageInnerWrapper>
   );
 };
@@ -70,9 +64,20 @@ const MessageInfo = ({
         </DateTimeWrapper>
       </GreenWrapper>
       <MessageInfoWrapper>
-        <MessageInfoInnerPeriod period={period} picture={pink_clock} />
-        <AudioPlayer />
-        <MessageInfoInnerScale scale={scale} picture={scale_blue} />
+        <MessageInfoInner info={period} picture={pink_clock} type="period" />
+        <AudioPlayerWrapper>
+          <ImageStyled src={audio} />
+          <AudioPlayerStyled />
+        </AudioPlayerWrapper>
+
+        <MessageInfoInner
+          info={scale}
+          picture={scale_blue}
+          color="#316C7A"
+          text="шкала"
+          width="10vw"
+          type="scale"
+        />
       </MessageInfoWrapper>
     </ContentStyled>
   );

@@ -4,7 +4,7 @@ import { RobotoText } from "../Card/IncedentCard.styled";
 
 export const CardStyled = styled(Card)`
   width: 290px;
-  height: 70px;
+  height: 85px;
   border: none;
   border-radius: 10px;
   background: #b3e1d1;
@@ -42,11 +42,17 @@ export const FamilyName = styled(RobotoText)`
   color: #79a3ad;
 `;
 
+export const AddressWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 85%;
+`;
+
 export const AddressStyled = styled(RobotoText)`
   text-align: start;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   user-select: none;
-  margin-top: 10px;
 `;

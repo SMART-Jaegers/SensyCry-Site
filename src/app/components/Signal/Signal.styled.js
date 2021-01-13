@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  min-height: 30vh;
+  min-height: 20vh;
 `;
 
 export const SignalsWrapper = styled.div`

@@ -12,8 +12,9 @@ import {
   FooterBottom,
   ButtonChoice,
   AwesomeIconStyled,
+  DropdownStyled,
 } from "./Footer.styled";
-import { Menu, Dropdown } from "antd";
+import { Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import {
   faFacebook,
@@ -34,12 +35,12 @@ const Footer = () => {
     <FooterStyled>
       <AskForHelp>
         <FooterMainHeader>Звернутись по допомогу</FooterMainHeader>
-        <Dropdown overlay={menu}>
+        <DropdownStyled overlay={menu}>
           <ButtonChoice>
             виберіть місто
             <DownOutlined twoToneColor="#316C7A" />
           </ButtonChoice>
-        </Dropdown>
+        </DropdownStyled>
       </AskForHelp>
       <HotLines>
         <HotLine>

@@ -5,6 +5,7 @@ import {
   ContentLabel,
   ContentWrapper,
 } from "../../components/ContentLabel/ContentLabel.styled";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 
 const { Content } = Layout;
 
@@ -27,7 +28,8 @@ export const ContentWrapperMessage = styled(ContentWrapper)``;
 export const TextWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 18vw;
+  max-width: 18vw;
+  min-width: 14vw;
   margin: auto 0px auto 50px;
 `;
 
@@ -42,6 +44,7 @@ export const MessageInfoWrapper = styled.div`
 
 export const ConclusionInfoWrapper = styled(MessageInfoWrapper)`
   height: 10vh;
+  user-select: none;
 `;
 
 export const GreenWrapper = styled(ContentWrapper)`
@@ -50,6 +53,7 @@ export const GreenWrapper = styled(ContentWrapper)`
   padding-left: 10px;
   align-items: center;
   background: #afdccd;
+  user-select: none;
 `;
 
 export const DocumentAddressWraper = styled.div`
@@ -58,8 +62,9 @@ export const DocumentAddressWraper = styled.div`
   max-width: 40vw;
 `;
 
-export const ImageStyled = styled(Image)`
+export const ImageStyled = styled.img`
   margin: 0, auto;
+  user-select: none;
 `;
 
 export const DocumentName = styled(ContentLabelMessage)`
@@ -79,7 +84,17 @@ export const MessageInnerWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: ${({ width }) => width};
+  user-select: none;
 `;
+
+export const AudioPlayerWrapper = styled.div`
+  margin-left: 50px;
+  max-width: 17vw;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AudioPlayerStyled = styled(AudioPlayer)``;
 
 export const MessageInnerParagraph = styled.p`
   font-family: Roboto;

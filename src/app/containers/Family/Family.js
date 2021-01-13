@@ -10,18 +10,20 @@ import {
   DocumentName,
   AddressName,
   ContentWrapperSignals,
+  ConclusionImageStyled,
+  ContentLabelFamilySignal,
 } from "./Family.styled";
 import useFetchData from "../../Utils/FetchHook";
 import CircleLoader from "react-spinners/CircleLoader";
-import document from "../../images/document.jpg";
-import address from "../../images/location.jpg";
+import document from "../../images/document.svg";
+import address from "../../images/location.svg";
 import Signal from "../../components/Signal/Signal";
 import { CircleLoaderContainer } from "../Main/Main.styled";
 import { generateFamilyInfo } from "../../Utils/GeneratorWord";
 import { useLocation } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars";
 
-const Main = () => {
+const Family = () => {
   let location = useLocation();
   const [family, setFamily] = useState(location.state);
   const { data, isLoading, error } = useFetchData(
@@ -55,13 +57,17 @@ const Main = () => {
         </ContentWrapperFamily>
         <FamilyInfoWrapper>
           <DocumentAddressWraper>
-            <ImageStyled
+            <ConclusionImageStyled
               src={document}
               onClick={() => {
                 generateFamilyInfo(family);
               }}
             />
-            <DocumentName>
+            <DocumentName
+              onClick={() => {
+                generateFamilyInfo(family);
+              }}
+            >
               {" "}
               {family ? `${family.surname}` : ""}.docx
             </DocumentName>
@@ -73,7 +79,7 @@ const Main = () => {
         </FamilyInfoWrapper>
         <ContentWrapperSignals>
           <TextWrapper>
-            <ContentLabelFamily>Сигнали</ContentLabelFamily>
+            <ContentLabelFamilySignal>Сигнали</ContentLabelFamilySignal>
           </TextWrapper>
         </ContentWrapperSignals>
 
@@ -98,4 +104,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Family;

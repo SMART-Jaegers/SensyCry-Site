@@ -63,6 +63,8 @@ export const Logo = styled(ImageStyled)`
 
 export const HeaderButton = styled(ButtonStyled)`
   margin: auto 0;
+  font-size: 1rem;
+  line-height: 0;
   background: rgba(255, 255, 255, 0);
   width: ${({ width }) => width};
   height: ${({ height }) => height};
