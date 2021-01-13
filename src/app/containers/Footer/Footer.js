@@ -11,9 +11,15 @@ import {
   FooterMainHeader,
   FooterBottom,
   ButtonChoice,
+  AwesomeIconStyled,
 } from "./Footer.styled";
 import { Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const menu = (
   <Menu>
@@ -48,7 +54,11 @@ const Footer = () => {
           </FooterParagraph>
         </HotLine>
       </HotLines>
-      <FooterBottom></FooterBottom>
+      <FooterBottom>
+        <AwesomeIconStyled icon={faFacebook}></AwesomeIconStyled>
+        <AwesomeIconStyled icon={faInstagram}></AwesomeIconStyled>
+        <AwesomeIconStyled icon={faTwitter}></AwesomeIconStyled>
+      </FooterBottom>
     </FooterStyled>
   );
 };

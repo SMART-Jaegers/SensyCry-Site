@@ -48,4 +48,5 @@ export const AddressStyled = styled(RobotoText)`
   font-size: 16px;
   line-height: 19px;
   user-select: none;
+  margin-top: 10px;
 `;
