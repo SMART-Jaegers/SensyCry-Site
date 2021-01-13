@@ -7,6 +7,7 @@ import {
   FamilyId,
   AddressStyled,
   FamilyInfo,
+  AddressWrapper,
 } from "./SiderCard.styled";
 
 const SiderCard = ({ family }) => {
@@ -24,7 +25,9 @@ const SiderCard = ({ family }) => {
           <FamilyId>№ {family.familyId}</FamilyId>
           <FamilyName>{family.surname}</FamilyName>
         </FamilyInfo>
-        <AddressStyled>{family.address}</AddressStyled>
+        <AddressWrapper>
+          <AddressStyled>{family.address}</AddressStyled>
+        </AddressWrapper>
       </CardInfo>
     </CardStyled>
   );

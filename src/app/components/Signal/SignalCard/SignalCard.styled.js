@@ -59,4 +59,5 @@ export const CardInfoStyled = styled(CardInfo)`
 
 export const ArrowStyled = styled.img`
   margin: auto 0 auto 4px;
+  user-select: none;
 `;
