@@ -3,6 +3,7 @@ import SiderCard from "../../components/SiderCard/SiderCard";
 import useFetchData from "../../Utils/FetchHook";
 import { DistrictName, InputStyled, SiderStyled } from "./Sider.styled";
 import NumberFormat from "react-number-format";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const Sider = () => {
   const [family, setFamily] = useState([]);
@@ -33,31 +34,33 @@ const Sider = () => {
 
   return (
     <SiderStyled width={340}>
-      <DistrictName>Франківський район</DistrictName>
-      <NumberFormat
-        onChange={handleChange}
-        prefix={"№ "}
-        placeholder="Введіть реєстровий номер сім'ї"
-        customInput={InputStyled}
-      />
-      {isLoading ? (
-        <div />
-      ) : error === null ? (
-        family.slice(0, 6).map((element) => {
-          if (element.surname !== null) {
-            return (
-              <SiderCard key={element.familyId.toString()} family={element} />
-            );
-          }
-          return null;
-        })
-      ) : (
-        <p>
-          <br />
-          No connection to server
-          <br /> Please try again later
-        </p>
-      )}
+      <Scrollbars autoHide>
+        <DistrictName>Франківський район</DistrictName>
+        <NumberFormat
+          onChange={handleChange}
+          prefix={"№ "}
+          placeholder="Введіть реєстровий номер сім'ї"
+          customInput={InputStyled}
+        />
+        {isLoading ? (
+          <div />
+        ) : error === null ? (
+          family.slice(0, 6).map((element) => {
+            if (element.surname !== null) {
+              return (
+                <SiderCard key={element.familyId.toString()} family={element} />
+              );
+            }
+            return null;
+          })
+        ) : (
+          <p>
+            <br />
+            No connection to server
+            <br /> Please try again later
+          </p>
+        )}
+      </Scrollbars>
     </SiderStyled>
   );
 };

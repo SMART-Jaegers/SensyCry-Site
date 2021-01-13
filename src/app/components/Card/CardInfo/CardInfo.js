@@ -7,7 +7,7 @@ const CardInfo = ({
   title,
   info,
   icon,
-  marginTop = "18px",
+  marginTop = "0px",
 }) => {
   return (
     <InfoContainer marginTop={marginTop}>

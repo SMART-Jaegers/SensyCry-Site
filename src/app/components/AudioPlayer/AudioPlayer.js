@@ -4,10 +4,16 @@ import { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { AudioPlayerStyled } from "./AudioPlayer.styled";
 
-const AudioPlayer = () => {
+const AudioPlayer = ({ source = "" }) => {
+  const getURL = () => {
+    return `https://sensycry-records.s3.amazonaws.com/${
+      source === "" ? "default.wav" : source
+    }`;
+  };
+
   return (
     <AudioPlayerStyled
-      src={"https://sensycry-records.s3.amazonaws.com/SoundHelix-Song-1.mp3"}
+      src={getURL()}
       showJumpControls={false}
       showDownloadProgress={false}
       customAdditionalControls={[]}

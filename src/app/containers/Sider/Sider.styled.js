@@ -10,6 +10,10 @@ export const SiderStyled = styled(Sider)`
   flex-direction: column;
   justify-content: start;
   align-items: center;
+
+  .ant-layout-sider-children {
+    width: 100%;
+  }
 `;
 
 export const DistrictName = styled.p`

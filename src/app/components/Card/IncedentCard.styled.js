@@ -61,11 +61,16 @@ export const DateTextStyled = styled(RobotoText)`
   color: #79a3ad;
   user-select: none;
 `;
+export const AddressContainer = styled.div`
+  display: flex;
+  height: 60px;
+  margin-left: 26px;
+  margin-right: 30px;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 export const AddressStyled = styled(RobotoText)`
-  margin-top: 22px;
-  margin-left: 26px;
-  text-align: start;
   font-size: 16px;
   line-height: 19px;
 `;

@@ -8,6 +8,7 @@ import {
   AddressStyled,
   ResultStyled,
   CardButton,
+  AddressContainer,
 } from "./IncedentCard.styled";
 import CardInfo from "./CardInfo/CardInfo";
 import { useHistory } from "react-router-dom";
@@ -26,7 +27,9 @@ const IncedentCard = ({ incedent }) => {
         <NumberFamily>№ {incedent.familyId}</NumberFamily>
         <DateTextStyled>{incedent.dateToMinute}</DateTextStyled>
       </HeaderStyled>
-      <AddressStyled>{incedent.address}</AddressStyled>
+      <AddressContainer>
+        <AddressStyled>{incedent.address}</AddressStyled>
+      </AddressContainer>
       <ResultStyled>
         <CardInfo
           color="#9C687A"
