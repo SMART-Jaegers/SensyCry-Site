@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Layout, Image } from "antd";
+import { Layout } from "antd";
 import {
   ContentLabel,
   ContentWrapper,
@@ -65,6 +65,7 @@ export const DocumentAddressWraper = styled.div`
 export const ImageStyled = styled.img`
   margin: 0, auto;
   user-select: none;
+  max-width: 32px;
 `;
 
 export const DocumentName = styled(ContentLabelMessage)`

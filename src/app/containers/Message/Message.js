@@ -38,11 +38,10 @@ const MessageInfoInner = ({
     <MessageInnerWrapper width={width}>
       <ImageStyled src={picture} />
       <MessageInnerParagraph color={color}>{text}</MessageInnerParagraph>
-      {type === "scale" ? (
-        <MessageInnerTime color={color}>{info}%</MessageInnerTime>
-      ) : (
-        <MessageInnerTime color={color}>{info}</MessageInnerTime>
-      )}
+      <MessageInnerTime color={color}>
+        {info}
+        {type === "scale" ? "%" : ""}
+      </MessageInnerTime>
     </MessageInnerWrapper>
   );
 };

@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import { Layout, Image } from "antd";
-// import CircleLoader from "react-spinners/CircleLoader";
+import { Layout } from "antd";
 import {
   ContentLabel,
   ContentWrapper,
 } from "../../components/ContentLabel/ContentLabel.styled";
-// import { Paragraph } from "../../components/Text/Text.styled";
 
 const { Content } = Layout;
 
