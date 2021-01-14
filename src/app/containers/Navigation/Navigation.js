@@ -10,8 +10,9 @@ import Main from "../Main/Main";
 import Family from "../Family/Family";
 import { LayoutStyled } from "./Navigation.styled";
 import { Layout } from "antd";
+import Message from "../Message/Message";
 
-import Header from "../Headers/HeaderMainPage/Header";
+import Header from "../Headers/HeaderUser/Header";
 import Sider from "../Sider/Sider";
 
 const Navigation = () => {
@@ -34,7 +35,7 @@ const Navigation = () => {
                 <Family />
               </Route>
               <Route path="/user/message">
-                <div>Message</div>
+                <Message></Message>
               </Route>
             </Layout>
           </LayoutStyled>

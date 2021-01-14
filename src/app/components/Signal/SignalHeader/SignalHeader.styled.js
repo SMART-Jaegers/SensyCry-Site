@@ -6,6 +6,7 @@ export const SignalDateWrapper = styled(ContentWrapper)`
   background: #afdccd;
   margin-top: 0;
   height: 40px;
+  user-select: none;
 `;
 
 export const SignalDate = styled.div`

@@ -2,40 +2,49 @@ import React from "react";
 import {
   CardStyled,
   DateTextStyled,
-  NumberIncedent,
+  NumberFamily,
   VerticalTextStyled,
   HeaderStyled,
   AddressStyled,
   ResultStyled,
   CardButton,
+  AddressContainer,
 } from "./IncedentCard.styled";
 import CardInfo from "./CardInfo/CardInfo";
+import { useHistory } from "react-router-dom";
 
-const IncedentCard = ({
-  incedentId = 0,
-  date = "0000.00.00 00:00",
-  address = "вул. Героїв УА, 10/4",
-  time = "00:09:45",
-  rate = "75%",
-}) => {
+const IncedentCard = ({ incedent }) => {
+  let history = useHistory();
+
+  const goToMessage = () => {
+    history.push("/user/message", incedent);
+  };
+
   return (
     <CardStyled hoverable>
       <VerticalTextStyled>адреса</VerticalTextStyled>
       <HeaderStyled>
-        <NumberIncedent>№ {incedentId}</NumberIncedent>
-        <DateTextStyled>{date}</DateTextStyled>
+        <NumberFamily>№ {incedent.familyId}</NumberFamily>
+        <DateTextStyled>{incedent.dateToMinute}</DateTextStyled>
       </HeaderStyled>
-      <AddressStyled>{address}</AddressStyled>
+      <AddressContainer>
+        <AddressStyled>{incedent.address}</AddressStyled>
+      </AddressContainer>
       <ResultStyled>
-        <CardInfo color="#9C687A" title="протягом" info={time} icon="clock" />
+        <CardInfo
+          color="#9C687A"
+          title="протягом"
+          info={incedent.duringTime}
+          icon="clock"
+        />
         <CardInfo
           color="#316C7A"
           title="шкала"
-          info={rate + "%"}
+          info={incedent.accuracy + "%"}
           icon="settings"
         />
       </ResultStyled>
-      <CardButton>Більше</CardButton>
+      <CardButton onClick={goToMessage}>Більше</CardButton>
     </CardStyled>
   );
 };

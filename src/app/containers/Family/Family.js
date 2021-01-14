@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ContentStyled,
   ContentLabelFamily,
@@ -10,64 +10,98 @@ import {
   DocumentName,
   AddressName,
   ContentWrapperSignals,
+  ConclusionImageStyled,
+  ContentLabelFamilySignal,
 } from "./Family.styled";
 import useFetchData from "../../Utils/FetchHook";
 import CircleLoader from "react-spinners/CircleLoader";
-import document from "../../images/document.jpg";
-import location from "../../images/location.jpg";
+import document from "../../images/document.svg";
+import address from "../../images/location.svg";
 import Signal from "../../components/Signal/Signal";
 import { CircleLoaderContainer } from "../Main/Main.styled";
+import { generateFamilyInfo } from "../../Utils/GeneratorWord";
+import { useLocation } from "react-router-dom";
+import { Scrollbars } from "react-custom-scrollbars";
 
-const Main = () => {
-  const { data, isLoading, error } = useFetchData("incedent/apartment/1");
+const Family = () => {
+  let location = useLocation();
+  const [family, setFamily] = useState(location.state);
+  const { data, isLoading, error } = useFetchData(
+    `incedent/apartment/${family.familyId}`
+  );
 
-  return (
-    <ContentStyled>
-      <ContentWrapperFamily>
-        <TextWrapper>
-          <ContentLabelFamily>№12345</ContentLabelFamily>
-          <ContentLabelFamily>-</ContentLabelFamily>
-          <ContentLabelFamily>Петренович</ContentLabelFamily>
-        </TextWrapper>
-      </ContentWrapperFamily>
-      <FamilyInfoWrapper>
-        <DocumentAddressWraper>
-          <ImageStyled src={document} />
-          <DocumentName> Петренович.docx</DocumentName>
-        </DocumentAddressWraper>
-        <DocumentAddressWraper>
-          <ImageStyled src={location} />
-          <AddressName> м. Львів, вул. Героїв УПА, 10/4</AddressName>
-        </DocumentAddressWraper>
-      </FamilyInfoWrapper>
-      <ContentWrapperSignals>
-        <TextWrapper>
-          <ContentLabelFamily>Сигнали</ContentLabelFamily>
-        </TextWrapper>
-      </ContentWrapperSignals>
+  useEffect(() => {
+    setFamily(location.state);
+  }, [location]);
+
+  if (isLoading === true) {
+    return (
       <CircleLoaderContainer>
         <CircleLoader color="#79a3ad" loading={isLoading} size={400} />
       </CircleLoaderContainer>
-      {isLoading ? (
-        <div />
-      ) : error === null ? (
-        Object.keys(data).map((dayOfIncedent) => {
-          return (
-            <Signal
-              key={dayOfIncedent}
-              date={dayOfIncedent}
-              source={data[dayOfIncedent]}
+    );
+  }
+  return (
+    <ContentStyled>
+      <Scrollbars autoHide>
+        <ContentWrapperFamily>
+          <TextWrapper>
+            <ContentLabelFamily>
+              {family ? `№${family.familyId}` : "No info"}
+            </ContentLabelFamily>
+            <ContentLabelFamily>-</ContentLabelFamily>
+            <ContentLabelFamily>
+              {family ? `${family.surname}` : ""}
+            </ContentLabelFamily>
+          </TextWrapper>
+        </ContentWrapperFamily>
+        <FamilyInfoWrapper>
+          <DocumentAddressWraper>
+            <ConclusionImageStyled
+              src={document}
+              onClick={() => {
+                generateFamilyInfo(family);
+              }}
             />
-          );
-        })
-      ) : (
-        <p>
-          No connection to server
-          <br /> Please try again later
-        </p>
-      )}
+            <DocumentName
+              onClick={() => {
+                generateFamilyInfo(family);
+              }}
+            >
+              {" "}
+              {family ? `${family.surname}` : ""}.docx
+            </DocumentName>
+          </DocumentAddressWraper>
+          <DocumentAddressWraper>
+            <ImageStyled src={address} />
+            <AddressName> {family ? `${family.address}` : ""}</AddressName>
+          </DocumentAddressWraper>
+        </FamilyInfoWrapper>
+        <ContentWrapperSignals>
+          <TextWrapper>
+            <ContentLabelFamilySignal>Сигнали</ContentLabelFamilySignal>
+          </TextWrapper>
+        </ContentWrapperSignals>
+
+        {error === null ? (
+          Object.keys(data).map((dayOfIncedent) => {
+            return (
+              <Signal
+                key={dayOfIncedent}
+                date={dayOfIncedent}
+                source={data[dayOfIncedent]}
+              />
+            );
+          })
+        ) : (
+          <p>
+            No connection to server
+            <br /> Please try again later
+          </p>
+        )}
+      </Scrollbars>
     </ContentStyled>
   );
 };
 
-export default Main;
+export default Family;

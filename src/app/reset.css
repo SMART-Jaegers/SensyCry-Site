@@ -2,6 +2,10 @@ p {
   margin: 0;
 }
 
-p::selection, h1::selection, input::selection{
+p::selection, h1::selection, input::selection, div::selection, br::selection{
   background:  #316C7A;
+}
+
+svg{
+  margin: 0;
 }

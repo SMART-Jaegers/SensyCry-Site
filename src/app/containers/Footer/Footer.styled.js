@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Header, Paragraph } from "../../components/Text/Text.styled";
 import { Button } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Dropdown } from "antd";
 
 export const FooterStyled = styled.div`
   flex-direction: column;
@@ -49,12 +51,21 @@ export const FooterBottom = styled.div`
     rgba(49, 108, 122, 0.6) 100%
   );
   height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AwesomeIconStyled = styled(FontAwesomeIcon)`
+  color: white;
+  font-size: 35px;
+  margin: 0 50px;
 `;
 
 export const FooterParagraph = styled(Paragraph)`
   font-weight: 200;
-  font-size: 0.75rem;
-  line-height: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
   color: rgba(0, 0, 0, 0.85);
   width: 31vw;
 `;
@@ -102,4 +113,8 @@ export const CitiesSelect = styled.select`
   text-align: center;
   margin-top: 3px;
   text-align-last: center;
+`;
+
+export const DropdownStyled = styled(Dropdown)`
+  width: 15vw;
 `;

@@ -1,40 +1,36 @@
-import { fetchByLinkOne, fetchIncedent } from "./Api";
+export const addIncedentInfo = (incedent) => {
+  let value = incedent.apartment;
+  incedent.address = value.address;
+  incedent.familyId = value.familyId;
+  incedent.surname = value.people.length === 0 ? null : value.people[0].surname;
+  incedent.dateIncedent = incedent.date.split("T")[0];
+  incedent.timeIncedent = incedent.date.split("T")[1].substring(0, 8);
+  incedent.dateToMinute = `${
+    incedent.dateIncedent
+  } ${incedent.timeIncedent.substring(0, 5)}`;
+  incedent.apartment = generateFamily(incedent.apartment);
 
-export const addIncedentInfo = async (data) => {
-  for (let element of data) {
-    let value = await fetchByLinkOne(element.links[1].href);
-    element.address = value.address;
-    element.familyId = value.familyId;
-    let formatedDate = element.date.split("T");
-    let formatedTime = formatedDate[1].split("+");
-
-    element.date = `${formatedDate[0]} ${formatedTime[0].substring(0, 5)}`;
-  }
-  return data;
+  return incedent;
 };
 
-export const addApartamentSurname = async (data) => {
-  for (let element of data) {
-    let value = await fetchIncedent(element.links[2].href);
-    if (value[0] === undefined) {
-      element.surname = null;
-      continue;
-    }
-    element.surname = value[0].surname;
-  }
-  return data;
-};
+export const formatIncedentForFamily = (data) => {
+  let incedentDict = {};
 
-export const formatIncedentForFamily = async (data) => {
-  let formatedData = {};
   for (let element of data) {
     let key = element.date.split("T")[0];
-    let formatedTime = element.date.split("T")[1].split("+")[0];
-    element.date = `${formatedTime.substring(0, 8)}`;
-    if (formatedData[key] === undefined) {
-      formatedData[key] = [];
+
+    if (incedentDict[key] === undefined) {
+      incedentDict[key] = [];
     }
-    formatedData[key].push(element);
+    incedentDict[key].push(element);
   }
-  return formatedData;
+
+  return incedentDict;
+};
+
+export const generateFamily = (apartment) => {
+  let value = apartment.people;
+  apartment.surname = value[0] ? value[0].surname : null;
+  apartment.persons = value;
+  return apartment;
 };

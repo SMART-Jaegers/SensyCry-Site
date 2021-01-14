@@ -1,77 +1,57 @@
 import axios from "axios";
 import {
-  addApartamentSurname,
   addIncedentInfo,
   formatIncedentForFamily,
+  generateFamily,
 } from "./ProcessResult";
 
 const restApi = axios.create({
-  baseURL: "http://localhost:8081/sensycry/",
+  baseURL: "https://sensycrytest.herokuapp.com/sensycry/",
   responseType: "json",
 });
 
-export const fetchIncedent = async (link) => {
+export const fetchData = async (link) => {
   try {
     let responseData = await restApi.get(link);
-    const link_resource = link.split("/")[0];
-    let data;
-    switch (link_resource) {
-      case "incedent":
-        if (link.split("/")[1] === "apartment") {
-          data = formatIncedentForFamily(responseData.data);
-          break;
-        }
-        data = await addIncedentInfo(responseData.data);
-        break;
-      case "apartment":
-        data = await addApartamentSurname(responseData.data);
-        break;
-
-      default:
-        data = responseData.data;
-        break;
-    }
-    return data;
+    return responseData.data;
   } catch (error) {
     console.log(` cant fetch data  by link: ${link}, error: ${error}`);
     return null;
   }
 };
 
-// export const fetchIncedentById = async (id) => {
-//   try {
-//     let responseElement = await restApi.get("/incedent" + id);
-//     return [responseElement.data];
-//   } catch (error) {
-//     console.log("error, cant fetch incedent", error);
-//     return [];
-//   }
-// };
+export const getData = async (link, many) => {
+  let data = await fetchData(link);
 
-// export const patchData = async (element) => {
-//   try {
-//     await restApi.put("/" + element.id, element);
-//   } catch {
-//     console.log("error, cant patch element");
-//   }
-// };
+  const link_resource = link.split("/")[0];
 
-// export const fetchApartamentById = async (id) => {
-//   try {
-//     let responseElement = await restApi.get("/apartment" + id);
-//     return responseElement.data;
-//   } catch (error) {
-//     console.log("error, cant fetch apartament");
-//     return error;
-//   }
-// };
+  switch (link_resource) {
+    case "incedent":
+      if (!many) {
+        data = addIncedentInfo(data);
+        break;
+      }
+      data.forEach((element) => {
+        element = addIncedentInfo(element);
+      });
+      if (link.split("/")[1] === "apartment") {
+        data = formatIncedentForFamily(data);
+      }
+      break;
 
-export const fetchByLinkOne = async (link) => {
-  try {
-    let response = await axios.get(link);
-    return response.data;
-  } catch (error) {
-    console.log(` cant fetch element by link: ${link}, error: ${error}`);
-    return null;
+    case "apartment":
+      if (!many) {
+        data = generateFamily(data);
+      } else {
+        data.forEach((element) => {
+          element = generateFamily(element);
+        });
+      }
+      break;
+
+    default:
+      break;
   }
+
+  return data;
 };

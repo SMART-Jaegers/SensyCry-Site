@@ -46,11 +46,12 @@ export const HeaderStyled = styled.div`
   padding: 0 20px;
 `;
 
-export const NumberIncedent = styled(RobotoText)`
+export const NumberFamily = styled(RobotoText)`
   display: inline;
   font-size: 16px;
   line-height: 19px;
   color: #316c7a;
+  user-select: none;
 `;
 
 export const DateTextStyled = styled(RobotoText)`
@@ -58,12 +59,18 @@ export const DateTextStyled = styled(RobotoText)`
   font-size: 12px;
   line-height: 14px;
   color: #79a3ad;
+  user-select: none;
+`;
+export const AddressContainer = styled.div`
+  display: flex;
+  height: 60px;
+  margin-left: 26px;
+  margin-right: 30px;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const AddressStyled = styled(RobotoText)`
-  margin-top: 22px;
-  margin-left: 26px;
-  text-align: start;
   font-size: 16px;
   line-height: 19px;
 `;
