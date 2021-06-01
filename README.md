@@ -1,8 +1,11 @@
 # SensyCry Site
+### by SmartJaegers
 
 to run site, firstly, download project ```git clone https://github.com/SMART-Jaegers/SensyCry-Site.git```
 
+
 then go into download folder   ```cd sensycry-site```
+
 
 now you need set up this project, simply write ```npm install``` and wait when finished initialising of project
 

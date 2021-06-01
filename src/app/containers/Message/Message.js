@@ -52,7 +52,17 @@ const MessageInfo = ({
   period = "00:09:45",
   scale = "75",
   audioPath,
+  emotion,
 }) => {
+  const translateEmotion = () => {
+    if (emotion === "angry") {
+      return "злість";
+    }
+    if (emotion === "fear") {
+      return "страх";
+    }
+    return emotion;
+  };
   return (
     <ContentStyled>
       <GreenWrapper>
@@ -73,7 +83,7 @@ const MessageInfo = ({
           info={scale}
           picture={scale_blue}
           color="#316C7A"
-          text="шкала"
+          text={translateEmotion()}
           width="10vw"
           type="scale"
         />
@@ -101,6 +111,7 @@ const Message = () => {
         period={data.duringTime}
         scale={data.accuracy}
         audioPath={data.nameRecord}
+        emotion={data.pathRecord}
       />
       <GreenWrapper>
         <ContentLabelConclusion>Висновок</ContentLabelConclusion>

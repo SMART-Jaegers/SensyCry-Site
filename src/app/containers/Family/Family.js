@@ -29,6 +29,7 @@ const Family = () => {
   const { data, isLoading, error } = useFetchData(
     `incedent/apartment/${family.familyId}`
   );
+  console.log(data);
 
   useEffect(() => {
     setFamily(location.state);

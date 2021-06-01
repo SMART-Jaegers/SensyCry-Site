@@ -13,7 +13,6 @@ import { Scrollbars } from "react-custom-scrollbars";
 
 const Main = () => {
   const { data, isLoading, error } = useFetchData("incedent/all/10");
-
   return (
     <ContentStyled>
       <Scrollbars autoHide>

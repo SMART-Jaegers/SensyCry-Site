@@ -10,6 +10,7 @@ export const SiderStyled = styled(Sider)`
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  z-index: 2;
 
   .ant-layout-sider-children {
     width: 100%;

@@ -19,6 +19,17 @@ const IncedentCard = ({ incedent }) => {
   const goToMessage = () => {
     history.push("/user/message", incedent);
   };
+  console.log(incedent);
+
+  const translateEmotion = () => {
+    if (incedent.pathRecord === "angry") {
+      return "злість";
+    }
+    if (incedent.pathRecord === "fear") {
+      return "страх";
+    }
+    return incedent.pathRecord;
+  };
 
   return (
     <CardStyled hoverable>
@@ -39,7 +50,7 @@ const IncedentCard = ({ incedent }) => {
         />
         <CardInfo
           color="#316C7A"
-          title="шкала"
+          title={translateEmotion()}
           info={incedent.accuracy + "%"}
           icon="settings"
         />
